@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 from Tkinter import *
 
@@ -20,12 +21,14 @@ class AristaTool(Frame):
 #Modify Vlans
 
         labelButton1 = Label(self, text='Current VLANs')
-        listBox = Listbox(self)
-        vlanList= ['VLAN001', 'VLAN002', 'VLAN003', 'VLAN004']
+        listBox = Listbox(self, width =40)
+
+        # % show VLAN command
+        vlanList= [('#', 'Name', 'Status', 'Ports'), ('1', 'default', 'active', 'ET1, ET2, ET3')]
         for i in range(len(vlanList)):
             listBox.insert(i, vlanList[i])
 
-        listBoxBtn = LabelFrame(self, text="Edit" )
+        listBoxBtn = LabelFrame(self, text="Edit", padx=5, pady=5)
         listBoxBtn.pack(padx=10, pady=10)
         w = Button(listBoxBtn, text='Check Status')
         w.pack()
@@ -53,7 +56,7 @@ class AristaTool(Frame):
 
 def main():
     root = Tk()
-    root.geometry("550x350+300+300")
+    root.geometry("750x250+300+300")
     app = AristaTool(root)
     root.mainloop()  
 
